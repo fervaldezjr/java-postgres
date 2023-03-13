@@ -28,8 +28,6 @@ public class Main {
         } catch (SQLException e) {
             System.out.println("Error connecting to PostgreSQL DB");
             e.printStackTrace();
-        } {
-
         }
     }
 }
