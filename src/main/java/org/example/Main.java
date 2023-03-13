@@ -1,20 +1,18 @@
 package org.example;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class Main {
-    public static void main(String[] args) {
-        String jdbcURL         = "jdbc:postgresql://localhost:55000/postgres";
-        String username        = "postgres";
-        String password        = "postgrespw";
-        String insertPersonSql = "INSERT INTO person (personid, firstname, secondname, address, city) VALUES (?, ?, ?, ?, ?)";
+    public static void main(String...args) {
+        final var jdbcURL         = "jdbc:postgresql://localhost:55000/postgres";
+        final var username        = "postgres";
+        final var password        = "postgrespw";
+        final var insertPersonSql = "INSERT INTO person (personid, firstname, secondname, address, city) VALUES (?, ?, ?, ?, ?)";
 
         try (
-            Connection connection       = DriverManager.getConnection(jdbcURL, username, password);
-            PreparedStatement statement = connection.prepareStatement(insertPersonSql);
+            var connection = DriverManager.getConnection(jdbcURL, username, password);
+            var statement  = connection.prepareStatement(insertPersonSql);
         ){
             statement.setInt(1, 1);
             statement.setString(2, "Lionel");
