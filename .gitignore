@@ -33,4 +33,4 @@
 hs_err_pid*
 
 # VSCode things
-settings.json
+.vscode/
